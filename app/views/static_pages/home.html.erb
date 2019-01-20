@@ -7,3 +7,11 @@
 		<%= submit_tag("Show photos") %>
 	<% end %>
 </div>
+
+<div id="photos">
+	<% if @user_photos.any? %>
+		<%= @user_photos.count %>
+	<% else %>
+		No photos to display
+	<% end %>
+</div>
