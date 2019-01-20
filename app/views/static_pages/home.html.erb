@@ -1,2 +1,9 @@
 <h1>Flickr Stream</h1>
-<h2>Enter a Flickr username or ID to see their latest photos</h2>
+
+<div id="search">
+	<%= form_tag("/", method: "get") do %>
+		<%= label_tag(:user_id, "Enter a user name or ID:") %>
+		<%= text_field_tag(:user_id) %>
+		<%= submit_tag("Show photos") %>
+	<% end %>
+</div>
