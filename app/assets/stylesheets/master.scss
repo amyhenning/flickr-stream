@@ -29,6 +29,11 @@ h1, h2 {
 	padding-left: 2em;
 }
 
+#title a, a:hover {
+	color: #423747;
+	text-decoration: none;
+}
+
 #nav-links {
 	width: 45%;
 	display: flex;
@@ -76,6 +81,7 @@ h1, h2 {
 	border: 2px solid #423747;
 	border-radius: 10px;
 	color: #423747;
+	background-color: #fff;
 }
 
 .submit-btn {
@@ -86,6 +92,7 @@ h1, h2 {
 	border: 2px solid #423747;
 	border-radius: 10px;
 	color: #423747;
+	background-color: #fff;
 }
 
 .submit-btn:hover {
@@ -103,6 +110,7 @@ h1, h2 {
 	justify-content: center;
 	align-items: center;
 	flex-wrap: wrap;
+	text-align: center;
 }
 
 .flickr-photo {
