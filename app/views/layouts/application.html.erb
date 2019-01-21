@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>FlickrStream</title>
+    <title>Flickr Stream</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +9,26 @@
   </head>
 
   <body>
-    <%= yield %>
+  	<header>
+		<navbar id="navbar">
+			<div id="title">
+				<h1>Flickr Stream</h1>
+			</div>
+
+			<div id="nav-links">
+				<div class="nav-link">
+					<%= link_to 'Clear Search', root_path %>
+				</div>
+
+				<div class="nav-link">
+					<%= link_to 'Source Code', 'https://github.com/amyhenning' %>
+				</div>
+			</div>
+		</navbar>
+  	</header>
+
+  	<main id="main">
+    	<%= yield %>
+    </main>
   </body>
 </html>

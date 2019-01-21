@@ -1,17 +1,24 @@
-<h1>Flickr Stream</h1>
-
 <div id="search">
 	<%= form_tag("/", method: "get") do %>
-		<%= label_tag(:user_id, "Enter a user name or ID:") %>
-		<%= text_field_tag(:user_id) %>
-		<%= submit_tag("Show photos") %>
+		<div class="search-item">
+			<h2><%= label_tag(:user_id, "Enter a Flickr username or ID:") %></h2>
+		</div>
+		<div class="search-item">
+			<%= text_field_tag :user_id, nil, class: 'form-field' %>
+		</div>
+		<div class="search-item">
+			<%= submit_tag("Show photos", class: 'submit-btn') %>
+		</div>
 	<% end %>
 </div>
 
 <div id="photos">
-	<% if @user_photos.any? %>
-		<%= @user_photos.count %>
+	<% if !@user_photos.blank? %>
+		<% @user_photos.each do |photo| %>
+			<% info = flickr.photos.getInfo(:photo_id => photo.id) %>
+			<%= image_tag FlickRaw.url_b(info), class: 'flickr-photo' %>
+		<% end %>
 	<% else %>
-		No photos to display
+		No photos to display. Please enter a Flickr username above.
 	<% end %>
 </div>
