@@ -16,7 +16,9 @@
 	<% if !@user_photos.blank? %>
 		<% @user_photos.each do |photo| %>
 			<% info = flickr.photos.getInfo(:photo_id => photo.id) %>
-			<%= image_tag FlickRaw.url_b(info), class: 'flickr-photo' %>
+			<%= link_to FlickRaw.url_photopage(info), target: "_blank" do %>
+				<%= image_tag FlickRaw.url_b(info), class: 'flickr-photo' %>
+			<% end %>
 		<% end %>
 	<% else %>
 		No photos to display. Please enter a Flickr username above.
