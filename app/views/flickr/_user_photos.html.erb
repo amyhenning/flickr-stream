@@ -1,0 +1,11 @@
+<div>
+	<h2><%= @user_id %>'s Photos</h2>
+</div>
+<div>
+	<% @user_photos.each do |photo| %>
+		<% info = flickr.photos.getInfo(:photo_id => photo.id) %>
+		<%= link_to FlickRaw.url_photopage(info), target: "_blank" do %>
+			<%= image_tag FlickRaw.url_b(info), class: 'flickr-photo' %>
+		<% end %>
+	<% end %>
+</div>

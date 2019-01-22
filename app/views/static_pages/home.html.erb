@@ -13,19 +13,9 @@
 </div>
 
 <div id="photos">
-	<% if !@user_photos.blank? %>
-		<div>
-			<h2><%= @user_id %>'s Photos</h2>
-		</div>
-		<div>
-			<% @user_photos.each do |photo| %>
-				<% info = flickr.photos.getInfo(:photo_id => photo.id) %>
-				<%= link_to FlickRaw.url_photopage(info), target: "_blank" do %>
-					<%= image_tag FlickRaw.url_b(info), class: 'flickr-photo' %>
-				<% end %>
-			<% end %>
-		</div>
+	<% if !@user_id.blank? %>
+		<%= get_photos %>
 	<% else %>
-		No photos to display. Please enter a Flickr username above.
+		<h2>No photos to display. Please enter a Flickr username above.</h2>
 	<% end %>
 </div>
